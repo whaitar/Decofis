@@ -1,0 +1,37 @@
+{
+  "name": "decofis",
+  "version": "1.0.0",
+  "description": "Cifrador y descifrador local con reparto de claves, autodestrucción y firma. Nada sale de tu equipo.",
+  "main": "main.js",
+  "author": "Whaitar",
+  "license": "Whaitar",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "hash-wasm": "^4.12.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "local.decofis.app",
+    "productName": "DECOFIS",
+    "publish": null,
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": { "output": "release" },
+    "mac": { "category": "public.app-category.utilities" },
+    "win": { "target": "nsis" },
+    "linux": { "target": "AppImage" }
+  }
+}
